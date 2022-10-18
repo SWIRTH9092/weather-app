@@ -1,15 +1,19 @@
 
 // Constants and Variables
-const API_KEY = ';
+const API_KEY = 'a6e9bad4fa160aa7de5ed9f6e4088082';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 
 let weatherData, userInput;
-// const $title = $('#title');
+const $weatherCity = $('#wcity');
+console.log("weatherCity",$weatherCity)
+
 // const $cityName = $('cityName');
 // const $rated = $('#rated');
-// const $input = $('input[type="text"]');
+const $input = $('input[type="text"]');
 
-// $('form').on('submit', handleGetData);
+
+// Event Listener for form Input
+$('form').on('submit', handleGetData);
 
 // //Event Listener
 // function handleGetData(event) {
@@ -39,18 +43,28 @@ let weatherData, userInput;
 
 //https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
+//Handle function for Input
+function handleGetData (event) {
+  event.preventDefault();
 
-function handleGetData() {
+  userInput = $input.val();
+  console.log("user Input", userInput)
   $.ajax(BASE_URL + 'q=Martinsburg&appid=' + API_KEY)
   .then(
     (data) => { 
     weatherData = data;
     console.log("weatherrdata", weatherData);
-    //  render();
+    render();
   }, 
     (error) => {
     console.log('error:', error);
   })
 }
 
+function render() {
+    console.log("weatherData.name", weatherData.name)
+    $weatherCity.text(`Weather For: ${weatherData.name}`);
+//     $year.text(movieData.Year);
+//     $rated.text(movieData.Rated);
+ }
  // 
