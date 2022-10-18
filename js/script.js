@@ -4,11 +4,12 @@ const API_KEY = '';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 
 let weatherData, userInput;
-const $weatherCity = $('#wcity');
-console.log("weatherCity",$weatherCity)
 
-// const $cityName = $('cityName');
-// const $rated = $('#rated');
+// jquery variables for HTML elements
+const $weatherCity = $('#wcity');
+const $temp = $('#temp');
+const $feelslike = $('#feelslike')
+const $weather = $('weather')
 const $input = $('input[type="text"]');
 
 
@@ -43,7 +44,7 @@ function handleGetData (event) {
 function render() {
     console.log("weatherData.name", weatherData.name)
     $weatherCity.text(`Weather For: ${weatherData.name}`);   
-
+    $temp.text(`Weather For: ${Math.round(weatherData.main.temp)}`)
 //     $year.text(movieData.Year);
 //     $rated.text(movieData.Rated);
  }
