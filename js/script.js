@@ -22,19 +22,30 @@ function handleGetData (event) {
   // calling preventDefault() on a 'submit' event will    prevent a page refresh  
   event.preventDefault();
 
-  //  getting User Input
+  //  getting User Input and reset to placeholder
   userInput = $input.val();
-  console.log("user Input", userInput)
+  $input.val("")
+    // Calling API for weather information
+  $.ajax(`${BASE_URL}q=${userInput}&appid=${API_KEY}&units=imperial`)
 
-  // Calling API for weather information
-  $.ajax(BASE_URL + 'q=Martinsburg&appid=' + API_KEY + '&units=imperial')
+  // $.ajax(BASE_URL + 'q=Martinsburg&appid=' + API_KEY + '&units=imperial')
   .then(
     (data) => { 
     weatherData = data;
     render();
   }, 
     (error) => {
-    console.log('error:', error);
+    //  checkiing for city not found
+    if (error.status === 404) {
+      $weatherCity.text
+      $temp.text("Temperature: ")
+      $feelsLike.text("Feels Like: ")
+      $weather.text ("Weather: ")  
+     } else {
+    // all other errors log....  
+      console.log("error", error)
+    }
+
   })
 }
 
