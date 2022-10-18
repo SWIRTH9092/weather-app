@@ -1,12 +1,9 @@
 
 // Constants and Variables
-const API_KEY = '';
+const API_KEY = ';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 
-
-
-//  current weather doc //
-// let movieData, userInput;
+let weatherData, userInput;
 // const $title = $('#title');
 // const $cityName = $('cityName');
 // const $rated = $('#rated');
@@ -45,9 +42,13 @@ const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 
 function handleGetData() {
   $.ajax(BASE_URL + 'q=Martinsburg&appid=' + API_KEY)
-  .then(function(data) { 
-    console.log("data", data);
-  }, function(error) {
+  .then(
+    (data) => { 
+    weatherData = data;
+    console.log("weatherrdata", weatherData);
+    //  render();
+  }, 
+    (error) => {
     console.log('error:', error);
   })
 }
