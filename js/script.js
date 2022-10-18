@@ -1,6 +1,6 @@
 
 // Constants and Variables
-const API_KEY = '';
+const API_KEY = 'a6e9bad4fa160aa7de5ed9f6e4088082';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 
 let weatherData, userInput;
@@ -8,10 +8,9 @@ let weatherData, userInput;
 // jquery variables for HTML elements
 const $weatherCity = $('#wcity');
 const $temp = $('#temp');
-const $feelslike = $('#feelslike')
-const $weather = $('weather')
+const $feelsLike = $('#feelslike')
+const $weather = $('#weather')
 const $input = $('input[type="text"]');
-
 
 // Event Listener for form Input
 $('form').on('submit', handleGetData);
@@ -32,7 +31,6 @@ function handleGetData (event) {
   .then(
     (data) => { 
     weatherData = data;
-    console.log("weatherrdata", weatherData);
     render();
   }, 
     (error) => {
@@ -42,10 +40,14 @@ function handleGetData (event) {
 
 // Update HTML Text
 function render() {
-    console.log("weatherData.name", weatherData.name)
-    $weatherCity.text(`Weather For: ${weatherData.name}`);   
-    $temp.text(`Weather For: ${Math.round(weatherData.main.temp)}`)
-//     $year.text(movieData.Year);
-//     $rated.text(movieData.Rated);
+    $weatherCity.text
+        (`Weather For:  ${weatherData.name}`);   
+    $temp.text
+        (`Temperature: ${Math.round(weatherData.main.temp)}`)
+    $feelsLike.text
+        (`Feels Like:  ${Math.round(weatherData.main.feels_like)}`)
+    $weather.text
+        (`Weather:  ${(weatherData.weather[0].description
+          )}`)
+
  }
- // 
