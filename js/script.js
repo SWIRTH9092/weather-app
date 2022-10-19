@@ -54,9 +54,9 @@ function render() {
     $weatherCity.text
         (`Weather For:  ${weatherData.name}`);   
     $temp.text
-        (`Temperature: ${Math.round(weatherData.main.temp)}`)
+        (`Temperature: ${Math.round(weatherData.main.temp)}  °`)
     $feelsLike.text
-        (`Feels Like:  ${Math.round(weatherData.main.feels_like)}`)
+        (`Feels Like:  ${Math.round(weatherData.main.feels_like)} °`)
     $weather.text
         (`Weather:  ${(weatherData.weather[0].description
           )}`)
