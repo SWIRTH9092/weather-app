@@ -36,11 +36,11 @@ function handleGetData (event) {
   }, 
     (error) => {
     //  checkiing for city not found
-    if (error.status === 404) {
-      $weatherCity.text
-      $temp.text("Temperature: ")
-      $feelsLike.text("Feels Like: ")
-      $weather.text ("Weather: ")  
+    if (error.status === 404 || error.status === 404) {
+      $weatherCity.text(`Invalid City Name: ${userInput} `)
+      $temp.text("")
+      $feelsLike.text("")
+      $weather.text ("")  
      } else {
     // all other errors log....  
       console.log("error", error)
@@ -52,11 +52,11 @@ function handleGetData (event) {
 // Update HTML Text
 function render() {
     $weatherCity.text
-        (`Weather For:  ${weatherData.name}`);   
+        (`${weatherData.name} Weather`);   
     $temp.text
-        (`Temperature: ${Math.round(weatherData.main.temp)}  °`)
+        (`Temperature: ${Math.round(weatherData.main.temp)}°`)
     $feelsLike.text
-        (`Feels Like:  ${Math.round(weatherData.main.feels_like)} °`)
+        (`Feels Like:  ${Math.round(weatherData.main.feels_like)}°`)
     $weather.text
         (`Weather:  ${(weatherData.weather[0].description
           )}`)

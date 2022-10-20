@@ -10,16 +10,22 @@
     <title>Weather App</title>
 </head>
 <body>
-    <main>
-        <h1>Weather App</h1>
-            <p id="wcity">Weather For: </p>
-            <p id="temp">Tempature: </p>
-            <p id="feelslike">Feels Like: </p>
-            <p id="weather">Weather: </p>
+    <! main messageContainer
+    <div class="container">      
+        <div class="header">  
+            <p class="pagetitle">Weather App</p>
+        </div>       
+        <form class="form">
+            <input id="placeholder" type="text" placeholder="Search City Name">
+            <input id="button" type="submit" value="Get Weather Info">
+          </form>
+        <main class="content">
+             <p id="wcity" class="content">          </p>
+            <p id="temp" class="content"></p>
+            <p id="feelslike" class="content"></p>
+            <p id="weather" class="content"> </p>
     </main>
-    <form>
-        <input id="placeholder" type="text" placeholder="Search City Name">
-        <input type="submit" value="Get Weather Info">
-      </form>
+
+    </div>  
 </body>
 </html>
